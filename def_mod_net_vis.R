@@ -3,10 +3,10 @@
 library("igraph")
 
 ### IMPORT DATA
-# partial_edges = read.csv('/Users/emg/Programmming/R/phd-sem-1/edgelist.csv', header=T)
-# partial_nodes = read.csv('/Users/emg/Programmming/phd-sem-1/nodelist.csv', header=T)
-edges = read.csv('/Users/emg/Programmming/R/phd-sem-1/edgelist_full.csv', header=T)
-nodes = read.csv('/Users/emg/Programmming/R/phd-sem-1/nodelist_full.csv', header=T)
+# partial_edges = read.csv('edgelist.csv', header=T)
+# partial_nodes = read.csv('nodelist.csv', header=T)
+edges = read.csv('edgelist_full.csv', header=T)
+nodes = read.csv('nodelist_full.csv', header=T)
 
 
 # creating network objects
