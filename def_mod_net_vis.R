@@ -22,6 +22,7 @@ V(net)$color = adjustcolor(colrs[V(net)$type+1], 0.5)
 V(net)$shape <- c("square", "circle")[V(net)$type+1]  # square = redditors (mod), circle = subs
 V(net)$label.font = V(net)$type+1 # redditors = plain, subs = bold
 V(net)$label.cex = (V(net)$type+1)*0.5
+V(net)$label.color = colrs[V(net)$type+1]
 
 ### SELECTING FOR LARGE COMPONETS
 clu = components(net, mode = c("weak", "strong"))
@@ -40,8 +41,8 @@ sub2 = induced_subgraph(net, unlist(loose))
 
 
 # node shape plot
-pdf('orgs_loose.pdf')
-plot(sub2, vertex.label.color='black', vertex.frame.color=NA,
+pdf('orgs_giant_label.pdf')
+plot(sub, vertex.frame.color=NA, vertex.shape='none',
      vertex.size=5, edge.arrow.size=0)
 dev.off()
 
