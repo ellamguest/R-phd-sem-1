@@ -3,15 +3,15 @@
 library("igraph")
 
 ### IMPORT DATA
-partial_edges = read.csv('edgelist.csv', header=T)
-partial_nodes = read.csv('nodelist.csv', header=T)
-# edges = read.csv('edgelist_full.csv', header=T)
-# nodes = read.csv('nodelist_full.csv', header=T)
+# partial_edges = read.csv('edgelist.csv', header=T)
+# partial_nodes = read.csv('nodelist.csv', header=T)
+edges = read.csv('edgelist_full.csv', header=T)
+nodes = read.csv('nodelist_full.csv', header=T)
 
 
 # creating network objects
 net <- graph_from_data_frame(d=edges, vertices=nodes)
-net <- graph_from_data_frame(d=partial_edges, vertices=partial_nodes)
+# net <- graph_from_data_frame(d=partial_edges, vertices=partial_nodes)
 
 
 ### ADDING NODE ATTIBUTES
@@ -48,18 +48,18 @@ dev.off()
 
 ## PLOTTING FULL NETWORK
 # # full network components:
-# sub = induced_subgraph(net,unlist(groups(clu)[1]))
-# sub2 = induced_subgraph(net,unlist(groups(clu)[2]))
-# sub3 = induced_subgraph(net,unlist(groups(clu)[3]))
+sub = induced_subgraph(net,unlist(groups(clu)[1]))
+sub2 = induced_subgraph(net,unlist(groups(clu)[2]))
+sub3 = induced_subgraph(net,unlist(groups(clu)[3]))
 
 # # plot full giant component
 # # setting labels for subreddits only
-# V(sub)$label[V(sub)$type==0] <- ""
-# V(sub)$label[V(sub)$type==1] = V(sub)$name[V(sub)$type==1]
-# V(sub)$label.cex = 1
-# V(sub)$label.font= 1
-# V(sub)$label.color = 'black'
-# V(sub)$degree <- degree(sub, mode="all")
+V(sub)$label[V(sub)$type==0] <- ""
+V(sub)$label[V(sub)$type==1] = V(sub)$name[V(sub)$type==1]
+V(sub)$label.cex = 1
+V(sub)$label.font= 1
+V(sub)$label.color = 'black'
+V(sub)$degree <- degree(sub, mode="all")
 # 
 # pdf('giantcomponent.pdf')
 # plot(sub, vertex.shape = 'none', edge.arrow.size=0, layout=l,
