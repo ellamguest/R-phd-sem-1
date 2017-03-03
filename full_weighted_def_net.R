@@ -22,7 +22,17 @@ V(net)$label.cex = 1
 V(net)$label.font= 1
 V(net)$label.color = 'black'
 V(net)$degree <- degree(net, mode="all")
-E(net)$width = E(net)$weight
+E(net)$width = ifelse(E(net)$weight>=10, 9, E(net)$weight) # change sci-asksci weight from 92 to 9
+E(net)$color = ifelse(E(net)$weight>=10, 'red', 'grey')
 
 plot(net, layout=layout_with_fr, vertex.size = V(net)$subscribers / 4000000,
      vertex.frame.color=NA)
+
+per = c(31, 27, 11, 2, 20, 47, 35, 8, 33, 49)
+inc.edges = incident_edges(net, per, mode='all')
+
+ecol <- rep("gray80", ecount(net))
+ecol[inc.edges] <- "orange"
+vcol <- rep("grey40", vcount(net))
+vcol[per] <- "gold"
+plot(net, vertex.color=vcol, edge.color=ecol)

@@ -17,7 +17,7 @@ net <- graph_from_data_frame(d=edges, vertices=nodes)
 ### ADDING NODE ATTIBUTES
 # network visualisation attributesattributes
 colrs <- c("red", "blue")
-# V(net)$color <- colrs[V(net)$type+1] # red = redditors (mod), blue = subs
+#V(net)$color <- colrs[V(net)$type+1] # red = redditors (mod), blue = subs
 V(net)$color = adjustcolor(colrs[V(net)$type+1], 0.5)
 V(net)$shape <- c("square", "circle")[V(net)$type+1]  # square = redditors (mod), circle = subs
 V(net)$label.font = V(net)$type+1 # redditors = plain, subs = bold
